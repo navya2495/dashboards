@@ -1,0 +1,114 @@
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfcfb; /* Light cream background */
+  color: #1a1a1a; /* Darker text for better contrast */
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+  transition: background-color 0.3s ease;
+}
+
+header {
+  background: linear-gradient(135deg, #ff6f61); /* Warm red gradient */
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 10px;
+  animation: fadeInDown 1s ease-out;
+}
+
+
+header h1 {
+  margin: 0;
+  font-size: 2.8em;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-size: 1.2em;
+  opacity: 0.95;
+}
+
+/* Section Styling */
+section {
+  background-color: #ffffff;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2, h3, h4 {
+  color: #ff6f61;
+  margin-top: 0;
+  animation: fadeInLeft 0.6s ease;
+}
+
+/* Lists */
+ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Code Blocks */
+pre, code {
+  background-color: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  display: block;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Image Styling */
+img {
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Highlighted Sections */
+section[style*="background-color: #f0f8ff"],
+section[style*="background-color: #f9f9f9"] {
+  border-left: 6px solid #2a5298;
+  background-color: #f0f4ff !important;
+  animation: fadeInRight 0.8s ease;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
