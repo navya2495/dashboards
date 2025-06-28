@@ -1,5 +1,17 @@
 /* General Page Setup */
+.home-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
 
+.home-button:hover {
+  background-color: #0056b3;
+}
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url('business.jpg') no-repeat center center fixed;
