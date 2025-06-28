@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Sales Performance - 2024 Dashboard Report</title>
+  <link rel="stylesheet" href="css_sty.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Product Sales Performance Dashboard – 2024</h1>
+    
+    <section class="context">
+      <h2>📌 Purpose of the Dashboard</h2>
+      <p>
+        This interactive Power BI dashboard was designed to evaluate and compare <strong>Product Sales Performance</strong> in the year <strong>2024</strong>. It provides a holistic view of key performance indicators like <strong>Sales, Gross Profit %, Quantity, and Time-based Comparisons</strong>. The objective was to track performance by <strong>month, product type, and geography</strong> while identifying trends, variances, and areas of concern.
+      </p>
+    </section>
+    <section class="visual">
+      <h2>🖼️ Dashboard Preview</h2>
+      <img src="Performance of Product Sales.png" alt="Power BI Dashboard Screenshot" />
+    </section>
+    <section class="interactivity">
+      <h2>🧠 Interactivity and Slicer Usage</h2>
+      <p>
+        The dashboard includes slicers for dynamic analysis. In this case, the user selected:
+        <ul>
+          <li><strong>Year:</strong> <code>2024</code> from the Year dropdown slicer.</li>
+          <li><strong>Values:</strong> The toggle allowed switching between <code>Gross Profit</code> and <code>Quantity</code>. The current view uses <strong>Sales</strong> as the main metric.</li>
+        </ul>
+        This interactivity enables users to explore different metrics across months, countries, product types, and accounts.
+      </p>
+    </section>
+
+    <section class="kpi">
+      <h2>📈 Key Metrics & DAX Measures</h2>
+      <p>The dashboard uses custom DAX measures to track and compare:</p>
+      <ul>
+        <li><strong>GP% (Gross Profit %):</strong> Indicates margin efficiency — currently at <strong>39.15%</strong>.</li>
+        <li><strong>PYTD Sales (Previous Year-to-Date):</strong> <code>$3.71M</code></li>
+        <li><strong>YTD Sales (Current Year-to-Date):</strong> <code>$3.57M</code></li>
+        <li><strong>YTD vs PYTD:</strong> Shows a <strong>decline of -$135.89K</strong>, highlighting a drop in revenue compared to last year.</li>
+      </ul>
+    </section>
+
+    <section class="visuals">
+      <h2>📊 Visual Breakdown and Observations</h2>
+
+      <h3>1. 📉 YTD vs PYTD Column Chart (Month-wise)</h3>
+      <p>
+        This bar chart compares <strong>monthly sales performance</strong> between YTD and PYTD. 
+        <ul>
+          <li><strong>February</strong> saw a significant increase in sales (approx. $340K).</li>
+          <li><strong>April</strong> experienced the sharpest drop (approx. -$150K), indicating a possible operational issue or seasonal drop-off.</li>
+        </ul>
+      </p>
+
+      <h3>2. 📊 Stacked Column + Line Chart by Product Type</h3>
+      <p>
+        This chart shows sales breakdown by <strong>Product Type</strong> (Indoor, Outdoor, Landscape). Each bar represents sales by type, and the line tracks total S_YTD:
+        <ul>
+          <li><strong>Indoor products</strong> dominated January and February.</li>
+          <li><strong>Landscape and Outdoor</strong> types contributed heavily in March.</li>
+        </ul>
+      </p>
+
+      <h3>3. 🌍 Treemap: Bottom 10 Countries – YTD vs PYTD</h3>
+      <p>
+        This treemap identifies underperforming countries based on the YTD sales drop:
+        <ul>
+          <li><strong>Canada:</strong> Declined by <code>$73.71K</code>.</li>
+          <li><strong>Croatia:</strong> Declined by <code>$48.52K</code>.</li>
+          <li><strong>Germany, Colombia, Hungary, South Korea</strong> also experienced significant dips.</li>
+        </ul>
+        These insights help in identifying regions that may need strategic focus, product adjustment, or campaign intervention.
+      </p>
+
+      <h3>4. 🧮 Scatter Plot: GP% vs S_YTD by Account</h3>
+      <p>
+        The scatter plot visualizes customer accounts based on <strong>Gross Profit % (GP%)</strong> and <strong>Sales (S_YTD)</strong>. It helps in:
+        <ul>
+          <li>Segmenting accounts into <em>high-profit, high-volume</em> and <em>low-profit, low-volume</em> categories.</li>
+          <li>Red dotted quadrant lines guide performance thresholds for deeper segmentation.</li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="insights">
+      <h2>🔍 Strategic Insights and Business Value</h2>
+      <p>
+        This dashboard not only delivers sales tracking but also reveals important trends and improvement opportunities:
+        <ul>
+          <li>Monitor <strong>sales decline</strong> early using YTD vs PYTD variance.</li>
+          <li>Adjust marketing efforts for <strong>low-performing countries</strong>.</li>
+          <li>Identify <strong>high-potential customer segments</strong> via scatter plot analysis.</li>
+          <li>Evaluate <strong>product category performance</strong> across time for inventory planning.</li>
+        </ul>
+        The visual and interactive nature of the report helps stakeholders make quick, informed decisions.
+      </p>
+    </section>
+
+    <section class="next">
+      <h2>🚀 Next Steps and Enhancements</h2>
+      <p>
+        The dashboard can be enhanced further with:
+        <ul>
+          <li>Forecasting future sales using Power BI’s built-in analytics features.</li>
+          <li>Drill-through reports to explore product-level or customer-level detail.</li>
+          <li>Incorporating operational data to correlate marketing campaigns and sales impact.</li>
+        </ul>
+      </p>
+    </section>
+
+    
+
+    <footer>
+      <p>📌 Developed using Power BI | Data Storytelling by Jaladurgam Navya | 2024</p>
+    </footer>
+  </div>
+  <script>
+  const sections = document.querySelectorAll("section");
+  const options = { threshold: 0.1 };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>

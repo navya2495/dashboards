@@ -1,0 +1,156 @@
+/* General Page Setup */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('business.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #2c3e50;
+  padding: 40px;
+  min-height: 100vh;
+  backdrop-filter: brightness(0.95);
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  
+  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8));
+
+  z-index: -1;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.002);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+h2 {
+  color: #2e3b55;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.4rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+h3 {
+  color: #455a64;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+h2:hover,
+h3:hover {
+  color: #3949ab;
+  cursor: default;
+}
+
+/* Paragraph and Lists */
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #444;
+  transition: all 0.3s ease;
+}
+
+ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  padding-left: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Image Styling */
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+  animation-play-state: paused;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p, li {
+    font-size: 0.95rem;
+  }
+}
