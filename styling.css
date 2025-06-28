@@ -1,0 +1,187 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('data.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #2c3e50;
+  padding: 40px;
+  min-height: 100vh;
+  backdrop-filter: brightness(0.95);
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  
+  background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2));
+
+  z-index: -1;
+}
+
+
+/* Container */
+.container {
+  max-width: 960px;
+  margin: auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.description {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.section-heading {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Project Cards */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  padding: 1.5rem;
+  background: #f9fafc;
+  border-left: 6px solid #0077cc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a202c;
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  background: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: #005fa3;
+}
+
+.btn.github {
+  background: #24292e;
+}
+
+.btn.github:hover {
+  background: #1b1f23;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Animated Background */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Contact Section */
+.contact-section {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #fff; /* changed from #ccc to white */
+  text-align: center;
+  color: #fff; /* makes all text inside white */
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.contact-info li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #fff; /* ensures list items are white */
+}
+
+.contact-info a {
+  color: #fff; /* changed to pure white */
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+.contact-heading {
+  color: #fff;
+  /* Add any other special styles like font-size, shadow, etc. */
+}

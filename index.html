@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Dashboard Projects</title>
+  <link rel="stylesheet" href="styling.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 data-aos="fade-down">My Projects</h1>
+    <p class="description" data-aos="fade-up">Explore my interactive dashboards created with HTML, CSS, and Power BI. Each project is hosted and linked via GitHub for easy access.</p>
+    <h2 class="section-heading" data-aos="zoom-in">📊 My Dashboard Projects</h2>
+
+    <div class="projects">
+      <div class="card" data-aos="fade-up">
+        <h2>Sales Dashboard – 2024</h2>
+        <p>An interactive sales analysis dashboard highlighting sales, profit, and top/bottom products for 2024.</p>
+        <div class="buttons">
+          <a href="sales2024.html" class="btn">View Project</a>
+          <a href="https://github.com/your-username/sales2024-dashboard" target="_blank" class="btn github">GitHub Repo</a>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <h2>General Sales Dashboard</h2>
+        <p>This dashboard provides insights into overall sales performance using visual storytelling techniques.</p>
+        <div class="buttons">
+          <a href="sales.html" class="btn">View Project</a>
+          <a href="https://github.com/your-username/sales-dashboard" target="_blank" class="btn github">GitHub Repo</a>
+        </div>
+      </div>
+      
+<!-- Section Title -->
+    <h2 class="section-heading" data-aos="fade-right">python projects</h2>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <h2>Marketing Campaign Dashboard</h2>
+        <p>Visualizes campaign performance metrics including reach, engagement, and conversion rates.</p>
+        <div class="buttons">
+          <a href="marketing.html" class="btn">View Project</a>
+          <a href="https://github.com/your-username/marketing-dashboard" target="_blank" class="btn github">GitHub Repo</a>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <h2>Customer Retention Dashboard</h2>
+        <p>Analyzes customer churn, retention trends, and loyalty metrics for strategic insights.</p>
+        <div class="buttons">
+          <a href="retention.html" class="btn">View Project</a>
+          <a href="https://github.com/your-username/retention-dashboard" target="_blank" class="btn github">GitHub Repo</a>
+        </div>
+      </div>
+    <h2 class="section-heading" data-aos="fade-right">sql projects</h2>
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <h2>Financial Overview Dashboard</h2>
+        <p>Summarizes financial KPIs such as revenue, expenses, and profit margins in a clean layout.</p>
+        <div class="buttons">
+          <a href="finance.html" class="btn">View Project</a>
+          <a href="https://github.com/your-username/finance-dashboard" target="_blank" class="btn github">GitHub Repo</a>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="500">
+        <h2>HR Analytics Dashboard</h2>
+        <p>Tracks employee performance, hiring trends, and diversity metrics for HR decision-making.</p>
+        <div class="buttons">
+          <a href="hr.html" class="btn">View Project</a>
+          <a href="https://github.com/your-username/hr-dashboard" target="_blank" class="btn github">GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        const circle = document.createElement('span');
+        circle.classList.add('ripple');
+        this.appendChild(circle);
+        const d = Math.max(this.clientWidth, this.clientHeight);
+        circle.style.width = circle.style.height = `${d}px`;
+        circle.style.left = `${e.clientX - this.offsetLeft - d / 2}px`;
+        circle.style.top = `${e.clientY - this.offsetTop - d / 2}px`;
+        setTimeout(() => circle.remove(), 600);
+      });
+    });
+  </script>
+  <footer class="contact-section" data-aos="fade-up">
+      <h2 class="section-heading contact-heading">📬 Contact Me</h2>
+  
+      <ul class="contact-info">
+        <li><strong>Name:</strong>Jaladurgam Navya</li>
+        <li><strong>Email:</strong> <a href="mailto:your.email@example.com">jaladurgamnavya@gmail.com</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/your-username" target="_blank">github.com/your-username</a></li>
+      </ul>
+    </footer>
+</body>
+</html>
