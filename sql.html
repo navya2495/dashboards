@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Project - Hospital Admissions Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Hospital Patient Admissions and Resource Utilization Dashboard</h1>
+  </header>
+  <img src="hospital.png" alt="hospital">
+  <section class="description">
+    <h2>Project Overview</h2>
+    <p>
+      This project focuses on analyzing and visualizing large-scale hospital admission data 
+      to improve operational efficiency. By integrating SQL Server, Power BI, and Python notebooks, 
+      the goal is to help hospital administrators monitor patient flows, predict peak periods, 
+      and optimize resource allocation.
+    </p>
+  </section>
+
+  <section class="details">
+    <h2>Data and Storage</h2>
+    <ul>
+      <li>SQL Server database with over 5 million patient admission records.</li>
+      <li>Tables: Admissions, Patients, Beds, Departments.</li>
+      <li>Columns: PatientID, AdmissionDate, DischargeDate, DepartmentID, BedID, Age, Gender, DiagnosisCode.</li>
+    </ul>
+
+    <h2>SQL Server Queries</h2>
+    <p>
+      Wrote advanced SQL queries including:
+    </p>
+    <ul>
+      <li>Aggregations: COUNT, AVG length of stay by department.</li>
+      <li>Joins: Admissions with Patients and Beds.</li>
+      <li>Window functions: Rolling 7-day average bed occupancy.</li>
+      <li>Subqueries: Peak demand periods per department.</li>
+      <li>Performance: Indexed AdmissionDate for fast filtering on millions of rows.</li>
+    </ul>
+  </section>
+
+  <section class="notebook">
+    <h2>Notebook (ETL and Analysis)</h2>
+    <p>
+      Used a Python notebook for:
+    </p>
+    <ul>
+      <li>Data cleaning and validation.</li>
+      <li>Joining CSV extracts before loading into SQL Server.</li>
+      <li>Exploratory data analysis (EDA) on patient demographics and seasonal trends.</li>
+    </ul>
+  </section>
+
+  <section class="powerbi">
+    <h2>Power BI Dashboard</h2>
+    <p>
+      Built an interactive dashboard with:
+    </p>
+    <ul>
+      <li>Department-level bed occupancy over time.</li>
+      <li>Weekly and monthly admission trends.</li>
+      <li>Average length of stay by department and diagnosis.</li>
+      <li>Forecasting peaks to aid staffing and bed planning.</li>
+    </ul>
+  </section>
+
+  <section class="result">
+    <h2>Result</h2>
+    <p>
+      Delivered a production-ready dashboard that enables hospital administrators to reduce bottlenecks, 
+      better plan staffing, and optimize bed usage during peak periods. This project demonstrates 
+      strong SQL skills on large datasets, data engineering with notebooks, and dashboard design in Power BI.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy;My SQL project</p>
+  </footer>
+</body>
+</html>
