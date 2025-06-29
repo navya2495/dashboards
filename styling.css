@@ -157,9 +157,9 @@ h1 {
 .contact-section {
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid blue; /* changed from #fff to blue */
+  border-top: 1px solid #007bff; /* changed from #fff to this blue */
   text-align: center;
-  color: blue; /* makes all text inside blue */
+  color: #007bff; /* makes all text inside this blue */
 }
 
 .contact-info {
@@ -171,11 +171,11 @@ h1 {
 .contact-info li {
   margin: 0.5rem 0;
   font-size: 1rem;
-  color: blue; /* ensures list items are blue */
+  color: #007bff; /* ensures list items are this blue */
 }
 
 .contact-info a {
-  color: blue; /* changed to blue */
+  color: #007bff; /* changed to this blue */
   text-decoration: none;
 }
 
@@ -184,6 +184,7 @@ h1 {
 }
 
 .contact-heading {
-  color: blue;
+  color: #007bff;
   /* Add any other special styles like font-size, shadow, etc. */
 }
+
