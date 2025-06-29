@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breast Cancer and Heart Disease Diagnosis using Machine Learning</title>
+  <link rel="stylesheet" href="enhanced_cancer.css"/>
+  <style>
+    body {
+      background: 
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url('medical.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Breast Cancer and Heart Disease Diagnosis using Machine Learning</h1>
+  <p>
+    This project evaluates the performance of various machine learning models for diagnosing breast cancer using the
+    Wisconsin Breast Cancer Dataset and predicting heart disease using the Cleveland heart disease dataset.
+    The study demonstrates the potential for early diagnosis and improved clinical decision-making.
+  </p>
+
+  <section>
+    <h2>Models Used</h2>
+    <p>We selected and evaluated the following machine learning models:</p>
+    <ul>
+      <li>
+        <strong>Logistic Regression</strong>: A classic binary classification model that predicts the probability of a class using the logistic function. Achieved 97.37% accuracy in breast cancer diagnosis.
+      </li>
+      <li>
+        <strong>K-Nearest Neighbors (KNN)</strong>: Classifies new data based on the majority label among its nearest neighbors. Useful for high-dimensional medical data.
+      </li>
+      <li>
+        <strong>Naive Bayes</strong>: A probabilistic classifier based on Bayes' Theorem with strong independence assumptions. Effective in high-dimensional datasets.
+      </li>
+      <li>
+        <strong>Decision Tree</strong>: A tree-structured model that makes decisions by splitting the data based on feature values. Transparent and easy to interpret.
+      </li>
+      <li>
+        <strong>Random Forest</strong>: An ensemble of decision trees that improves accuracy and reduces overfitting by averaging multiple trees' predictions. Also achieved 97.37% accuracy in breast cancer analysis.
+      </li>
+      <li>
+        <strong>Support Vector Classifier (SVC)</strong>: Used in heart disease classification to find the optimal separating hyperplane with maximum margin, effective for non-linearly separable data.
+      </li>
+    </ul>
+    <p>
+      These models were implemented using Jupyter Notebook, which provided an environment for data preprocessing,
+      visualization, training, and evaluation.
+    </p>
+  </section>
+<section>
+  <h2>Programming Language and Libraries Used</h2>
+  <p>
+    The data analysis and machine learning pipeline for this project was implemented using <strong>Python</strong>, a popular and versatile programming language for data science and machine learning tasks.
+  </p>
+  <p>
+    The following Python libraries were used in the project:
+  </p>
+  <ul>
+    <li><strong>pandas</strong>: For data loading, cleaning, and manipulation.</li>
+    <li><strong>matplotlib</strong> and <strong>seaborn</strong>: For data visualization and plotting.</li>
+    <li><strong>scikit-learn</strong>: For preprocessing (scaling, encoding), feature selection, model training, evaluation, and PCA.</li>
+  </ul>
+  <p>
+    These tools provided a robust environment for exploring, preparing, modeling, and interpreting the data to support medical diagnosis tasks.
+  </p>
+</section>
+
+  <section>
+    <h2>Data Preprocessing</h2>
+
+    <h3>A. Checking Missing Values</h3>
+    <p>
+      For both datasets, there were no missing values initially detected. However, the heart disease dataset contained "?" symbols in the
+      <strong>ca</strong> and <strong>thal</strong> columns. These columns were converted to numeric values, and invalid entries were replaced with
+      <code>NaN</code> Missing values were then handled as follows:
+    </p>
+    <ul>
+      <li><strong>ca</strong> feature: filled using the <strong>median</strong>.</li>
+      <li><strong>thal</strong> feature: filled using the <strong>mode</strong>.</li>
+    </ul>
+    <p>
+       Converted <em>ca</em> and <em>thal</em> columns to numeric values.<br>
+       Filling missing values with mode and median.
+    </p>
+
+    <h3>B. Checking Duplicate Values</h3>
+    <p>
+      Both datasets were checked for duplicate rows:
+    </p>
+   
+
+    <h3>C. Summary Statistics</h3>
+
+    <h4>1. Breast Cancer Dataset</h4>
+    <ul>
+      <li><strong>Diagnosis:</strong> Target variable indicating condition presence (1) or absence (0). Mean ≈ 0.373 (~37.26% positive cases).</li>
+      <li><strong>Radius:</strong> Two measurements (radius1 and radius2). Example: radius1 mean = 14.13, range ≈ 6.98 to 28.11, representing cell or structure size.</li>
+    </ul>
+    
+
+    <h4>2. Heart Disease Dataset</h4>
+    <ul>
+      <li><strong>Age:</strong> Mean ≈ 54.4 years (range 29–77).</li>
+      <li><strong>Sex:</strong> Binary variable (0/1) with mean ≈ 0.68 (≈68% coded as 1).</li>
+      <li><strong>Chest pain type:</strong> Values from 1 to 4, mean ≈ 3.16.</li>
+      <li><strong>num (target variable):</strong> Multiclass values 0–4.
+        <ul>
+          <li>25th percentile: 0</li>
+          <li>50th percentile (median): 0</li>
+          <li>75th percentile: 2</li>
+        </ul>
+      </li>
+    </ul>
+    <p>Description of heart disease dataset.</p>
+  </section>
+<section>
+  <h2>Data Visualization for Breast Cancer Dataset</h2>
+
+  <!-- A. Distribution of Diagnosis Variable -->
+  <div class="viz-section">
+    <img src="brest_cancer.png" alt="Distribution of Diagnosis">
+    <div class="viz-text">
+      <h3>A. Distribution of Diagnosis Variable</h3>
+      <p>
+        The distribution of the <strong>Diagnosis</strong> variable shows two classes:
+      </p>
+      <ul>
+        <li>
+          <strong>Green bar (0 - Benign):</strong> Represents the count of benign cases, around 350.
+          This indicates there are more benign cases in the dataset.
+        </li>
+        <li>
+          <strong>Red bar (1 - Malignant):</strong> Represents the count of malignant cases, around 200.
+          There are fewer malignant cases in comparison to benign ones.
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+
+  <!-- B. Histograms of Features -->
+  <div class="viz-section">
+    <div class="viz-text">
+      <h3>B. Histograms of Features</h3>
+      <p>
+        Histograms provide an overview of how features are distributed and help in understanding the nature and spread of the data.
+        Most distributions exhibit right-skewness with varying levels of data variation.
+      </p>
+      <p>
+        The "3" feature set (e.g., <em>radius3</em>, <em>perimeter3</em>, etc.) typically shows a broader range of values than the "2" features (e.g., <em>radius2</em>, <em>perimeter2</em>, etc.),
+        indicating more variation or generally larger feature values.
+      </p>
+    </div>
+    <img src="histogram.png" alt="Histograms of Features">
+  </div>
+</section>
+<!-- C. Correlation Heat Map -->
+<div class="viz-section">
+  <img src="corelation.heatmap.png" alt="Correlation Heat Map">
+  <div class="viz-text">
+    <h3>C. Correlation Heat Map</h3>
+    <p>
+      The figure below shows that there is an extremely high correlation between <strong>radius</strong> and <strong>perimeter</strong> in both the "1", "2", and "3" feature sets, with correlation coefficients close to 1.
+    </p>
+    <p>
+      <strong>radius1</strong> and <strong>area1</strong> have a correlation of 0.9874, and similarly <strong>radius3</strong> and <strong>area3</strong> have 0.984. 
+      The features related to the size of the objects—<strong>radius</strong>, <strong>perimeter</strong>, <strong>area</strong>—show very strong linear correlations with each other.
+    </p>
+    <p>
+      It is logical to observe that these correlations suggest these features are not mutually independent but are closely bounded with each other, most likely due to their shape properties.
+    </p>
+  </div>
+</div>
+<section>
+  <h2>Data Visualization for Heart Disease Dataset</h2>
+
+  <div class="viz-section1">
+  <img src="histogram_for_numeric.png" alt="Histograms of Numeric Values">
+  <div class="viz-text">
+    <h3>B. Histograms of Numeric Values</h3>
+    <p>
+      The distributions suggest that most individuals in the dataset are middle-aged (40–60), with average resting blood pressure (120–140 mmHg) and cholesterol (200–250 mg/dL) values.
+      The maximum heart rate achieved by most individuals falls between 150 and 170 bpm.
+      All variables show some level of right skewness, with a larger concentration of values toward the lower end of the ranges.
+    </p>
+    <p>
+      Most values for <strong>oldpeak</strong> are concentrated around 0, with a sharp decline in frequency as oldpeak values increase.
+      The variable <strong>ca</strong> represents the number of major vessels (ranging from 0 to 3) visible under fluoroscopy.
+      The most frequent value is 0 (over 150 occurrences), meaning most individuals have no vessels colored by fluoroscopy.
+      As the number of vessels increases (1, 2, 3), the frequency decreases.
+    </p>
+    <p><em>Fig 13: Histograms of numeric values</em></p>
+  </div>
+</div>
+<div class="viz-section1">
+  <img src="category.png" alt="Distribution of Categorical Variables with Target">
+  <div class="viz-text">
+    <h3>C. Distribution of Categorical Variables with Target</h3>
+    <p>
+      Target 0 consistently shows the highest counts across all metrics, suggesting it may represent a "normal" or low-risk group.
+      <strong>Exang</strong> is less common overall, especially in target 0.
+      The middle category of <strong>slope</strong> (2.0) is most prevalent across all targets.
+    </p>
+    <p>
+      Normal <strong>thal</strong> results (3.0) are most common, particularly in target 0, while abnormal results are more evenly distributed across other targets.
+      There's a clear data imbalance, with target 0 having significantly more cases than other groups.
+    </p>
+  </div>
+</div>
+<div class="viz-section1">
+  <img src="cor_heatmap.png" alt="Heart Disease Heatmap">
+  <div class="viz-text">
+    <h3>C. Heatmap</h3>
+    <p>
+      In the heart disease dataset, the strongest correlations are between <strong>"slope"</strong> and <strong>"oldpeak"</strong> (0.577537), <strong>"num"</strong> and <strong>"ca"</strong> (0.520968), and <strong>"num"</strong> and <strong>"thal"</strong> (0.507155).
+    </p>
+    <p>
+      Additionally, <strong>"num"</strong> correlates with <strong>"oldpeak"</strong> at 0.504092 and with <strong>"thalach"</strong> at 0.415040.
+      These values highlight important variable relationships for predicting heart disease.
+    </p>
+    <p><em>Fig 15: Heatmap. These are top correlated features.</em></p>
+  </div>
+</div>
+<div class="viz-section1">
+  <img src="one_hot.png" alt="One-Hot Encoding Example">
+  <div class="viz-text">
+    <h3>D. One-Hot Encoding on Heart Disease Dataset</h3>
+    <p>
+      There are categorical features in this dataset. So we used the one-hot encoding method to convert these categorical variables.
+      The encoded features include:
+    </p>
+    <ul>
+      <li><code>sex</code></li>
+      <li><code>cp</code></li>
+      <li><code>fbs</code></li>
+      <li><code>restecg</code></li>
+      <li><code>exang</code></li>
+      <li><code>slope</code></li>
+      <li><code>ca</code></li>
+      <li><code>thal</code></li>
+    </ul>
+  </div>
+</div>
+
+
+
+ 
+</section>
+<section>
+  <h2>FEATURE SELECTION, SCALING AND PCA</h2>
+
+  <!-- 1️⃣ Feature Selection and Scaling (text only) -->
+  <div class="text-section">
+    <h3>Feature Selection and Scaling</h3>
+
+    <h4>A. Breast Cancer</h4>
+    <p>
+      Used the <strong>SelectKBest</strong> method for feature selection with <code>f_classif</code> (ANOVA F-value). Number of features selected: <strong>k=20</strong>.
+      Selecting the top 20 features strikes a balance between reducing dimensionality and retaining important information.
+    </p>
+
+    <h4>B. Heart Disease</h4>
+    <p>
+      Used <strong>SelectKBest</strong> in the same way as breast cancer. Number of features selected: <strong>k=18</strong>.
+      Selecting 18 features balanced dimensionality and accuracy better than 20.
+    </p>
+
+    <h4>VI. SCALING</h4>
+    <p>
+      For both datasets, applied <strong>StandardScaler</strong>. The scaler was fit on training data using <code>fit_transform</code> and applied to test data using <code>transform</code> for consistency.
+      In heart disease prediction, scaling was applied before feature selection specifically to: 
+      <code>age</code>, <code>trestbps</code>, <code>chol</code>, <code>thalach</code>, and <code>oldpeak</code>. Other categorical variables were converted to dummies.
+    </p>
+  </div>
+
+  <!-- 2️⃣ Principal Component Analysis (image + text) -->
+  <div class="viz-section2">
+  <div class="viz-text">
+    <h3>Principal Component Analysis (PCA)</h3>
+    <p>
+      PCA was applied to both training and test sets to reduce dimensionality to six components.
+      For breast cancer, reducing components to 4 decreased accuracy to 96%.
+      A scatter plot function was used to visualize the first 3 principal components in the training data.
+    </p>
+    <div class="pca-images">
+      <div class="pca-image">
+        <em>Breast Cancer PCA</em>
+        <img src="pca_breast.png" alt="PCA Breast Visualization">
+      </div>
+      <div class="pca-image">
+        <em>Heart Disease PCA</em>
+        <img src="pca_heart.png" alt="PCA Heart Visualization">
+      </div>
+    </div>
+  </div>
+</div>
+<section class="modeling-section">
+  <h2>Breast Cancer Modeling</h2>
+  <p>
+    In the analysis of breast cancer, five classification models were utilized: Logistic Regression (random state 42), K-Nearest Neighbors (5 neighbors), Naive Bayes, Decision Tree (random state 0), and Random Forest (random state 0).
+  </p>
+
+  <h2>Heart Disease Modeling</h2>
+  <p>
+    For heart disease, five models were used: Logistic Regression (random state 42), K-Nearest Neighbors (5 neighbors), Support Vector Classification (kernel='rbf'), Decision Tree (criterion='gini'), and Random Forest (random state 0).
+  </p>
+
+  <h2>Confusion Matrix</h2>
+  <h3>Breast Cancer</h3>
+  <p>
+    Logistic Regression and Random Forest show high true positives and low false negatives. KNN and Naive Bayes have more false positives and negatives. Decision Tree has more false negatives but low false positives.
+  </p>
+
+  <h3>Heart Disease</h3>
+  <p>
+    The target variable has five classes. Class 1 is well-identified, but classes 2 and 3 show confusion. SVC and Random Forest perform best for class 1 but struggle with others.
+  </p>
+ 
+<section class="modeling-section">
+  <h2>One-vs-Rest Confusion Matrix Evaluation</h2>
+  <p>
+    In this project, I employed the <strong>One-vs-Rest (OvR)</strong> strategy to evaluate the performance of a multi-class classification model. This technique is particularly useful when we want to assess how well the model distinguishes each class individually against all other classes.
+  </p>
+
+  <h3>Evaluation Strategy(Example)</h3>
+  <p>
+    Specifically, I treated <strong>Class 3 as the negative class</strong> and grouped all other classes (0, 1, 2, 4) as the positive class. This allowed for a focused analysis of how well the models could identify instances of Class 3 versus the rest.This type of method I did for the rest of all values by keeping 1 as negative,2 as negative etc;
+  </p>
+
+  <h3>Model Performance</h3>
+  <p>
+    The models demonstrated strong performance in terms of accuracy:
+  </p>
+  <ul>
+    <li><strong>Logistic Regression</strong>: 86.89% accuracy (highest)</li>
+    <li><strong>Random Forest</strong>: 81.97% accuracy</li>
+    <li><strong>Support Vector Machines</strong>: 81.97% accuracy</li>
+  </ul>
+
+  <p>
+    These results indicate that all models correctly identified a large majority of the instances they worked with. However, <strong>specificity was consistently low</strong> across all models, suggesting that distinguishing the negative class (Class 3) was more challenging.
+  </p>
+
+  <h3>Conclusion</h3>
+  <p>
+    The One-vs-Rest confusion matrix approach provided valuable insights into per-class performance, especially for underrepresented or difficult-to-classify classes. This evaluation guided further model tuning and helped identify areas for improvement.
+  </p>
+</section>
+
+  <h2>Evaluation</h2>
+  <div class="comparison-tables">
+    <!-- Breast Cancer Table -->
+    <table>
+      <caption>Breast Cancer Model Comparison</caption>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Accuracy</th>
+          <th>Precision</th>
+          <th>Recall</th>
+          <th>F1-Score</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <td>Logistic Regression</td>
+    <td>97.37%</td>
+    <td>97.67%</td>
+    <td>97.18%</td>
+    <td>95.45%</td>
+    
+  </tr>
+  <tr>
+    <td>KNN</td>
+    <td>96.49%</td>
+    <td>95.35%</td>
+    <td>97.18%</td>
+    <td>95.35%</td>
+  
+  </tr>
+  <tr>
+    <td>Naive Bayes</td>
+    <td>94.74%</td>
+    <td>90.70%</td>
+    <td>97.18%</td>
+    <td>95.12%</td>
+    
+  </tr>
+  <tr>
+    <td>Decision Tree</td>
+    <td>95.61%</td>
+    <td>97.67%</td>
+    <td>94.37%</td>
+    <td>91.30%</td>
+    
+  </tr>
+  <tr>
+    <td>Random Forest</td>
+    <td>97.37%</td>
+    <td>97.67%</td>
+    <td>97.18%</td>
+    <td>95.45%</td>
+    
+  </tr>
+</tbody>
+
+    </table>
+
+    <!-- Heart Disease Table -->
+    <table>
+      <caption>Heart Disease Model Comparison </caption>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Accuracy</th>
+          <th>Precision</th>
+          <th>Recall</th>
+          <th>F1-Score</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <td>Random Forest</td>
+    <td>86.89%</td>
+    <td>91.67%</td>
+    <td>78.57%</td>
+    <td>84.62%</td>
+    
+  </tr>
+  <tr>
+    <td>SVC</td>
+    <td>81.97%</td>
+    <td>100%</td>
+    <td>60.71%</td>
+    <td>75.56%</td>
+    
+  </tr>
+  <tr>
+    <td>Decision Tree</td>
+    <td>80.33%</td>
+    <td>76.67%</td>
+    <td>82.14%</td>
+    <td>79.31%</td>
+    
+  </tr>
+  <tr>
+    <td>Logistic Regression</td>
+    <td>83.67%</td>
+    <td>90.91%</td>
+    <td>71.43%</td>
+    <td>80.00%</td>
+    
+  </tr>
+  <tr>
+    <td>KNN</td>
+    <td>77.05%</td>
+    <td>85.00%</td>
+    <td>60.71%</td>
+    <td>70.83%</td>
+    
+  </tr>
+</tbody>
+
+    </table>
+  </div>
+
+  <h2>Discussion</h2>
+  <p>
+    The heart disease dataset shows class imbalance, with class 0 having 164 samples and others significantly fewer. This imbalance affects model performance, especially for minority classes. To improve results, stratified k-fold cross-validation and a mix of oversampling and undersampling techniques are recommended.
+  </p>
+</section>
+
+</section>
+</body>
+</html>
