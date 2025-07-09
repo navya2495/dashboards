@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Classification Using CNN - Navya Jaladurgam</title>
+  <link rel="stylesheet" href="people.css" />
+</head>
+<body>
+  <header>
+    <h1>Image Classification Using CNN</h1>
+    <p class="author">Navya Jaladurgam | Kent State University</p>
+    <p class="email">jnavya@kent.edu</p>
+  </header>
+
+  <section class="abstract">
+    <h2>Abstract</h2>
+    <p>
+      This project focuses on developing and optimizing Convolutional Neural Networks (CNNs) for image classification. Two datasets were used: one for facial expression recognition (35,887 images, 7 classes) and another custom dataset of hand gestures (3 classes). The study evaluates performance via accuracy metrics, confusion matrices, and learning curves.
+    </p>
+  </section>
+
+  <section class="content">
+    <h2>Techniques Applied</h2>
+    <ul>
+      <li>Data Cleaning and Organization (train/validation/test splits)</li>
+      <li>Image Resizing (48x48 grayscale and 112x112 RGB)</li>
+      <li>Data Augmentation with Keras ImageDataGenerator</li>
+      <li>Convolutional Layers with ReLU Activation</li>
+      <li>Batch Normalization for faster convergence</li>
+      <li>MaxPooling to reduce dimensionality</li>
+      <li>Dropout Layers to prevent overfitting</li>
+      <li>Adam Optimizer with learning rate scheduling</li>
+      <li>Confusion Matrix for class-wise performance</li>
+      <li>Training and Validation Accuracy/Loss Visualization</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Datasets</h2>
+    <ul>
+      <li>
+        <strong>Emotion Recognition:</strong> 35,887 images across 7 classes (happy, sad, angry, fear, surprise, disgust, neutral). 
+        <a href="https://www.kaggle.com/datasets/jonathanoheix/face-expression-recognition-dataset">[Kaggle Link]</a>
+      </li>
+      <li>
+        <strong>Don’t Touch Your Face:</strong> Custom-collected dataset with 3 classes (Touch, No Hands, No Touch with Hands) from student images.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+  <h2>Model Architecture Overview</h2>
+  <div class="model-grid">
+    <div class="model-item">
+      <h3>Model A: Facial Expression Recognition</h3>
+      <p>
+        - Input: 48x48 grayscale images<br>
+        - 4 Convolutional Layers with ReLU and Batch Normalization<br>
+        - 2 Fully Connected Layers with Dropout<br>
+        - Trained for 50 epochs<br>
+        - Result: ~64.5% validation accuracy
+      </p>
+      <img src="arc1.png" alt="Model A Architecture">
+    </div>
+    <div class="model-item">
+      <h3>Model B: Don’t Touch Your Face</h3>
+      <p>
+        - Input: 112x112 RGB images<br>
+        - Convolutional + MaxPooling layers with Batch Normalization<br>
+        - Dense Layer with 1024 units and 50% Dropout<br>
+        - Trained for 30 epochs<br>
+        - Result: ~99% validation accuracy
+      </p>
+      <img src="arc2.png" alt="Model B Architecture">
+    </div>
+  </div>
+</section>
+
+
+  <section>
+    <h2>Results and Evaluation</h2>
+    <p>We analyzed model performance using accuracy, loss curves, and confusion matrices.</p>
+
+    <h3>Sample Training & Validation Curves</h3>
+    <img src="https://via.placeholder.com/600x300?text=Training+%2F+Validation+Accuracy+Curve" alt="Accuracy Curve">
+    <img src="https://via.placeholder.com/600x300?text=Training+%2F+Validation+Loss+Curve" alt="Loss Curve">
+
+    <h3>Sample Confusion Matrix (Model A)</h3>
+    <img src="confu1.png" alt="Confusion Matrix Model A">
+
+    <h3>Sample Confusion Matrix (Model B)</h3>
+    <img src="confu2.png" alt="Confusion Matrix Model B">
+  </section>
+
+  <section>
+    <h2>Discussion</h2>
+    <p>
+      Future improvements could include data augmentation strategies, facial landmark detection for better alignment, ensemble methods with other modalities (e.g., body gestures), and feature dimensionality reduction using PCA. These can improve classification accuracy and model robustness.
+    </p>
+  </section>
+
+  <section>
+    <h2>References</h2>
+    <ul>
+      <li>Ketan Sarvakar et al., Facial emotion recognition using convolutional neural networks, Materials Today: Proceedings, 2023.</li>
+      <li>Zhu D et al., Facial Emotion Recognition Using a Novel Fusion of CNN and LBP, Comput Intell Neurosci, 2022.</li>
+      <li>Michelin et al., FaceGuard: A Wearable System To Avoid Face Touching, Frontiers in Robotics and AI, 2021.</li>
+      <li>Additional resources from Kaggle.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Navya Jaladurgam. All rights reserved.</p>
+  </footer>
+</body>
+</html>
